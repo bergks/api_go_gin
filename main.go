@@ -4,13 +4,15 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+
+	"github.com/dgrijalva/jwt-go"
 )
 
 type Film struct {
-	ID     string `json:"id"`
-	Title  string `json:"title"`
+	ID       string `json:"id"`
+	Title    string `json:"title"`
 	Director string `json:"director"`
-	Year string `json:"year"`
+	Year     string `json:"year"`
 }
 
 var films = []Film{
@@ -34,7 +36,7 @@ func main() {
 	router.POST("/films", createFilm)
 
 	// Обновление существующей книги
-	router.PUT("/filmss/:id", updateFilm)
+	router.PUT("/films/:id", updateFilm)
 
 	// Удаление книги
 	router.DELETE("/films/:id", deleteFilm)
